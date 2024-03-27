@@ -1,0 +1,19 @@
+{
+    "conversational": [
+      "Hey there! How's your day going?",
+      "What's new with you?",
+      "Any plans for the weekend?",
+      "Hope you're having a great day!",
+      "What's the latest good news?",
+      "Got any exciting stories to share?"
+    ],
+  
+    "command": [
+      "Generate a report for today's sales figures.",
+      "Update the inventory list.",
+      "Schedule a meeting for Monday.",
+      "Send the newsletter to subscribers.",
+      "Check the system for any updates.",
+      "Prepare the presentation for the next team meeting."
+    ]
+  }
