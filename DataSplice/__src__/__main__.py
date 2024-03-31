@@ -42,10 +42,7 @@ conversation_text = conversation_df['question']
 # now we want to combine these two datasets into a new dataset. We will use the command dataset as the primary dataset and the conversation dataset as the secondary dataset
 # our new dataset will have the following columns: 'text' and 'label'.
 # since we know the purposes of each dataset, we can label the command dataset as 'command' and the conversation dataset as 'conversation'
-# 0 = command, 1 = conversational     
-
-# create a new dataframe with the text and label columns
-new_df = pd.DataFrame(columns=['text', 'label'])
+# 0 = command, 1 = conversational text    
 
 # use tabulate to display the percentage of labels in the dataset
 def display_distribution(dataframe):
@@ -58,7 +55,6 @@ def display_distribution(dataframe):
     # create a table using tabulate
     table = tabulate.tabulate(zip(value_counts.index, value_counts, percentage), headers=['Label', 'Count', 'Percentage'], tablefmt='fancy_grid')
     
-    # 
 
     # print the table
     print(table)
