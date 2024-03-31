@@ -77,7 +77,7 @@ class Agent:
         # every token is equal to 5 characters, roundabout, so we will use that as a basis for the max amount of tokens.
         # the max amount of tokens for gpt-3.5-turbo is 2048 or so, so we will use 2000 as the max amount of tokens to be safe.
         # we multiply the max amount of tokens by 5 to convert to the max amount of characters, which is easier to check.
-        max_tokens = 2000 * 5 # about 10000 characters
+        max_tokens = 40 * 5 # about 500 characters
 
         # get the message logs
         message_logs = self.message_logs
@@ -87,13 +87,12 @@ class Agent:
         for message in message_logs:
             total_tokens += len(message["content"].split(" "))
         
-        print("Total tokens: " + str(total_tokens))
-        
         # if the total amount of tokens is greater than the max amount of tokens, remove the oldest non-system messages until the total amount of tokens is less than the max amount of tokens.
         while total_tokens > max_tokens:
+            print("Removing excess tokens...")
             for message in message_logs:
                 if message["role"] != "system":
-                    print(f"Removing message from {message['role']}: {message['content']}")
+                    # print(f"Removing message from {message['role']}: {message['content']}")
                     message_logs.remove(message)
                     total_tokens -= len(message["content"].split(" "))
                     break
@@ -125,7 +124,7 @@ class Agent:
     def legacy_chat(self):
         # generating the prompt for the legacy chat completion
         prompt = "\n".join([msg["content"] for msg in self.message_logs])
-        
+
         response = self.client.completions.create(
             model=self.model,
             prompt=prompt,
