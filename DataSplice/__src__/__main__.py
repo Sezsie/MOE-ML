@@ -12,24 +12,13 @@
 #############################################################################################################
 
 # imports
-
-from contact_openai import AIHandler, Agent
-from utils import Utilities, DebuggingUtilities
-from sklearn.preprocessing import MinMaxScaler
-
-import re
 import tabulate
 import os
 import pandas as pd # we can use this to load csv files, handy!
-import numpy as np
-import matplotlib.pyplot as plt
 from rich.console import Console
 
-# create a new AIHandler object
-utilities = Utilities()
-debug = DebuggingUtilities()
+# create a new Console object
 console = Console()
-dprint = debug.dprint
 
 # define the desktop path using os
 desktop_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
