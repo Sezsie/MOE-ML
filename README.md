@@ -1,2 +1,2 @@
 # MOE-ML
-The machine learning portion of the MODUS project, separated from the main application.
+The machine learning portion of a pet project of mine, separated from the main application. 
